@@ -1,0 +1,10 @@
+.container-ash{
+  display: flex;
+  align-items: center;
+  margin-top: -350px;
+  flex-direction: column;
+}
+
+.base{
+  opacity: 0;
+}

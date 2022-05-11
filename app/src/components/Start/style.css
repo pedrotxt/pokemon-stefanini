@@ -1,0 +1,34 @@
+.backgroud{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #43E97B 0%, #38F9D7 100%);
+}
+
+.fundo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fundo img{
+  margin-top: 20%;
+}
+
+.fundo button{
+  margin-top: 5%;
+}
+
+.btn-start{
+  background: #FF3D71;
+  border-radius: 42px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 10px 30px 10px 30px;
+  border: none;
+  color: #FFF;
+  text-align: center;
+}

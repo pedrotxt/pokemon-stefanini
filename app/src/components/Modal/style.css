@@ -1,0 +1,365 @@
+.overlay {
+  background: rgba(0, 0, 0, 0.35);
+  background-blend-mode: multiply;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content{
+  background: linear-gradient(90deg, #43E97B 0%, #38F9D7 100%);
+  overflow:auto;
+  position: absolute;
+  width: 360px;
+  height: 559px;
+  left: calc(50% - 360px/2);
+  top: calc(50% - 559px/2 - 0.5px);
+  
+}
+
+.overview-container {
+  background: #F7F9FC;
+  border-radius: 24px 24px 0px 0px;
+}
+
+.modal-container {
+  background: linear-gradient(90deg, #43E97B 0%, #38F9D7 100%);
+  border-radius: 1000px;
+  display: flex;
+  flex-direction: end;
+  height: 30%;
+}
+
+.modal-container button {
+  position: relative;
+  margin: 0px 0px 0px 310px;
+  width: 38px;
+  height: 38px;
+  font-size: 19px;
+  font-family: 'Open Sans', sans-serif;
+  background: #F7F9FC;
+  border: 2px solid #8F9BB3;
+  border-radius: 1000px;
+}
+
+.modal-container-2 {
+  margin-top: 140px;
+  justify-content: center;
+
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 10px 20px 20px;
+  width: 100%;
+}
+
+.modal-container-2 label{
+  font-family: 'Open Sans', sans-serif;
+    width: 109;
+    height: 24;
+    color: #2E3A59;
+    font-weight: 1000;
+}
+
+
+.fotoFundo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fundoFoto{
+  position: absolute;
+  display: flex;
+  height: 247px;
+  background: #F7F9FC;
+  border: 4px solid #00D68F;
+  border-radius: 1000px;
+  flex-grow: 0;
+  margin: 10px 0px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 247px;
+}
+
+.fundoFoto img{
+  max-height: 130px;
+  max-width: 130px;
+  min-width: 130px;
+  min-height: 130px;
+  object-fit: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnCriar {
+  padding: 00px 00px 20px 00px;
+}
+
+.btnCriar button{
+  background: #FF3D71;
+  border-radius: 42px;
+  width: 50%;
+  margin-top: 30px;
+  margin-left: 25%;
+  padding: 10px 40px 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.btnCriar input{
+  border: none;
+  background: #FF3D71;
+  color: white;
+  cursor: pointer;
+}
+
+.label-avatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.label-avatar input{
+  display: none;
+}
+
+.label-avatar span{
+  color: white;
+  margin-top: -20px;
+  margin-left: 90px;
+  z-index: 99;
+  display: flex;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+ 
+  transition: all 0.5s;
+ 
+  background: #FF3D71;
+
+  border: 4px solid #DB2C66;
+  border-radius: 1000px;
+}
+
+.label-avatar span:hover{
+  opacity: 1;
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+.infos-div{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10%;
+
+}
+
+.info-title{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  
+}
+
+.div-imagem-tipo{
+  flex-direction: row;
+  flex-grow: 1;
+  padding: 5px 105px 5px 105px;
+}
+
+.div-separacao .div-imagem-tipo img{
+  height: 100%;
+}
+
+.modal-container-2 .info-label{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+
+  text-transform: uppercase;
+  color: #2E3A59;
+}
+
+.modal-container-2 .info-title{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+
+  text-align: center;
+  color: #2E3A59;
+}
+
+.modal-container-2 .sub{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+
+  text-align: center;
+  color: #2E3A59; 
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 10px;
+  margin: 8px -02px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number]{
+  width: 100%;
+  padding: 12px 10px;
+  margin: 8px -02px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.estatisticas {
+  display: flex;
+}
+
+.div-labels {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  padding: 00px 130px 20px 40px;
+}
+
+.div-labels .info-label {
+  margin-top: 10px;
+}
+
+.div-subs{
+  display: flex;
+  flex-direction: column;
+}
+
+.div-subs .sub:not(:first-child){
+  margin-top: 3px;
+}
+
+.div-separacao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.habilidades {
+  display: flex;
+  justify-content: center;
+}
+
+.habilidades .info-label{
+  padding: 10px;
+}
+
+.btn-lapis {
+  width: 22px;
+  border: none;
+  background: none;
+}
+
+.btn-lapis .img-lapis{
+  display: flex;
+  height: 18px;
+  width: 18px;
+  margin-left: 10px;
+}
+
+.div-title {
+  display: flex;
+  justify-content: center;
+}
+
+
+.btnPokebola {
+  display: flex;
+  justify-content: center;
+}
+
+.btnPokebola button{
+  border: none;
+  background: none;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.btnPokebola button img{
+  height: 90px;
+  width: 90px;
+}
+
+.label-infos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.btn-Ok{
+  background: #EDF1F7;
+border-radius: 4px;
+padding: 10px;
+}
+
+.btn-X{
+  background: #EDF1F7;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.label-infos label {
+  padding: 0px 30px 0px 0px;
+}
+
+.h2-infos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h2-infos h2{
+  padding: 0px 11% 0px 0px;
+}
+
+sub{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+
+}
