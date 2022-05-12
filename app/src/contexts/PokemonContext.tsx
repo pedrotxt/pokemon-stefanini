@@ -3,6 +3,8 @@ import firebase from '../services/firebaseConnection';
 import { v4 as createId } from 'uuid';
 
 import Camera from '../assets/camera-icon.png';
+import { useModalStats } from "../hooks/useModalStats";
+import { useModalCapture } from "../hooks/useModalCapture";
 
 type PokemonContextProps = {
   children: ReactNode;
@@ -189,39 +191,42 @@ export const PokemonContextProvider = ({ children }: PokemonContextProps) =>{
     loadStorage();
   }, []);
 
-  async function handleUpload(){
+  const [ showModalStats, viewModalStats, closeModalStats ] = useModalStats();
+  const [ showModalCapture, viewModalCapture, closeModalCapture ] = useModalCapture();
+
+  async function handleUpload() {
     const currentUid = uuid;
-    setFotoEnviada(false);
     setLoading(true);
-  
-    const uploadTask = await firebase.storage()
-    .ref(`images/${currentUid}/${imagePoke.name}`)
-    .put(imagePoke)
-    .then(async()=>{
-      console.log('FOTO ENVIADA COM SUCESSO');
-      alert('Pokemon criado! Recarrege a página.')
-      setFotoEnviada(true);
-      setLoading(false);
-  
-      await firebase.storage().ref(`images/${currentUid}`)
-      .child(imagePoke.name).getDownloadURL()
-      .then(async (url)=> {
-        let urlFoto = url;
-  
-        await firebase.firestore().collection('pokes')
-        .doc(currentUid)
-        .update({
-          fotoUrl: urlFoto
-        })
-        .then(()=>{
-          let data = {
-            ...pokemons,
-            fotoUrl: urlFoto
-          };
-          setPokemons(data);
-        })
+    
+      await firebase.storage()
+      .ref(`images/${currentUid}/${imagePoke.name}`)
+      .put(imagePoke)
+      .then(async () => {
+        console.log('FOTO ENVIADA COM SUCESSO');
+        closeModalCapture();
+        closeModalStats();
+        
+        setFotoEnviada(true);
+        setLoading(false);
+        await firebase.storage().ref(`images/${currentUid}`)
+          .child(imagePoke.name).getDownloadURL()
+          .then(async (url) => {
+            let urlFoto = url;
+
+            await firebase.firestore().collection('pokes')
+              .doc(currentUid)
+              .update({
+                fotoUrl: urlFoto
+              })
+              .then(() => {
+                let data = {
+                  ...pokemons,
+                  fotoUrl: urlFoto
+                };
+                setPokemons(data);
+              })
+          })
       })
-    })
   }
 
   async function criarPokemon(
@@ -285,8 +290,7 @@ export const PokemonContextProvider = ({ children }: PokemonContextProps) =>{
     
         setPokemons(data);
         storagePokemon({data, ...pokemons});
-        setNome(''); setHp(''); setPeso(''); setAltura(''); setTipo(''); setHabilidade1(''); setHabilidade2(''); setHabilidade3(''); setHabilidade4(''); setDefesa(''); setAtaque(''); setDefesaEspecial(''); setAtaqueEspecial(''); setVelocidade(''); setFotoUrl({Camera});
-        setModalFechado(true);
+        setNome(''); setHp(''); setPeso(''); setAltura(''); setTipo(''); setHabilidade1(''); setHabilidade2(''); setHabilidade3(''); setHabilidade4(''); setDefesa(''); setAtaque(''); setDefesaEspecial(''); setAtaqueEspecial(''); setVelocidade(''); setFotoUrl(Camera);
       })
       .catch((error)=> {
         console.log(error);

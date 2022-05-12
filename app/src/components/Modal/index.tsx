@@ -20,11 +20,7 @@ const Modal = ({ isShowing, closeModal }: ModalProps) => {
   const [loadTypes, setLoadTypes] = useState(true);
   const [editarNome, setEditarNome] = useState(false);
 
-  const {  pokemons,  nome, setNome, imagePoke } = useContext(PokemonContext);
-
-  useEffect(() => {
-    setEditarNome(false);
-  },[!isShowing])
+  const {  pokemons, nome, setNome, imagePoke, setModalFechado } = useContext(PokemonContext);
 
   useEffect(() =>{
    async function loadTypes() {
@@ -57,7 +53,6 @@ async function excluirPokemon(pokemons : any){
   await firebase.firestore().collection('pokes').doc(pokemons.id)
   .delete()
   .then(()=>{
-    alert('Pokemon Liberado! Recarrega a página.')
     closeModal();
   })
 
@@ -75,14 +70,13 @@ async function handleSave(e: FormEvent<HTMLFormElement>) {
       nome: nome
     })
     .then(()=>{
-      alert('Nome alterado! Recarrega a página.')
-      setEditarNome(false);
+      alert('Nome alterado!')
       closeModal();
+      setEditarNome(false)
       setNome('');
     })
   }
 }
-
 
 useEffect(() => {
   document.body.style.overflowY = 'hidden';

@@ -4,13 +4,13 @@ import 'firebase/auth';
 import 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCKeixrJlNbolro5rorkM7-s92cJyt2_78",
-  authDomain: "pokemon-stefanini.firebaseapp.com",
-  projectId: "pokemon-stefanini",
-  storageBucket: "pokemon-stefanini.appspot.com",
-  messagingSenderId: "654028157659",
-  appId: "1:654028157659:web:c8c4aebcdf52dd882612fe",
-  measurementId: "G-J1P74G3JKG"
+  apiKey: "AIzaSyD0VywyehzOIwSEbbRe97r5JKjTmeTxiUo",
+  authDomain: "stefanini-pokemons.firebaseapp.com",
+  projectId: "stefanini-pokemons",
+  storageBucket: "stefanini-pokemons.appspot.com",
+  messagingSenderId: "790451474538",
+  appId: "1:790451474538:web:b9c5cab4d5ffa0fc54fa13",
+  measurementId: "G-14RP37DYVM"
 };
 
   firebase.initializeApp(firebaseConfig);

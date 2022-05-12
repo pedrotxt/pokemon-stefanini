@@ -12,5 +12,6 @@ export type Pokemon = {
   ataque: number,
   defesaEspecial: number,
   ataqueEspecial: number,
-  velocidade: number
+  velocidade: number,
+  fotoUrl: null
 }

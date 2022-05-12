@@ -17,8 +17,6 @@ const Ash = () => {
 
   const { loading } = useContext(PokemonContext);
 
-  const [start, setStart] = useState(false);
-
   return (
 
     <div className='container-ash'>

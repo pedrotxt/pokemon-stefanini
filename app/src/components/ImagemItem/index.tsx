@@ -9,10 +9,9 @@ import ModalCapture from '../Modal/ModalCapture';
 import ModalStats from '../Modal/ModalStats';
 import './style.css';
 
-
 const ImagemItem = () => {
 
-  const { setPokemons, setFotoEnviada } = useContext(PokemonContext);
+  const { setPokemons, setFotoEnviada, fotoEnviada, setModalFechado } = useContext(PokemonContext);
 
   const [ showModal, viewModal, closeModal ] = useModal();
 
@@ -26,23 +25,23 @@ const ImagemItem = () => {
 
   useEffect(()=>{
     setFotoEnviada(false);
-
+    
     async function loadPokes(){
     await listRef.limit(6)
     .get()
     .then((snapshot)=>{
-      loadPokemons(snapshot)
+      loadPokemons(snapshot);
     })
     }
     loadPokes();
     
-},[]);
+},[pokes]);
 
 // pegar todos os chamados da nossa collection chamados do firestore
 async function loadPokemons(snapshot:any){
   
-    snapshot.forEach((doc : any) =>{ 
-      let lista: any = [];
+  let lista: any = [];
+    snapshot.forEach((doc : any) =>{
         lista.push({
         id: doc.id,
         nome: doc.data().nome,
@@ -61,8 +60,7 @@ async function loadPokemons(snapshot:any){
         velocidade: doc.data().velocidade,
         fotoUrl: doc.data().fotoUrl
     })
-    setPokes((pokes:any[]) => [...pokes, ...lista]);
-   
+    setPokes(lista);
   })
 }
 
@@ -243,7 +241,7 @@ async function loadPokemons(snapshot:any){
 
       <Modal isShowing={showModal} closeModal={closeModal} />
       <ModalStats isShowingStats={showModalStats} closeModalStats={closeModalStats} />
-      <ModalCapture isShowingCapture={showModalCapture} closeModalCapture={closeModalCapture} />
+      
       </div>
       
   
