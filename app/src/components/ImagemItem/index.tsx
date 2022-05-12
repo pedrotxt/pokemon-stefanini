@@ -2,22 +2,18 @@ import firebase from 'firebase';
 import { FormEvent, useContext, useEffect, useState } from 'react';
 import { PokemonContext } from '../../contexts/PokemonContext';
 import { useModal } from '../../hooks/useModal';
-import { useModalCapture } from '../../hooks/useModalCapture';
 import { useModalStats } from '../../hooks/useModalStats';
 import Modal from '../Modal';
-import ModalCapture from '../Modal/ModalCapture';
 import ModalStats from '../Modal/ModalStats';
 import './style.css';
 
 const ImagemItem = () => {
 
-  const { setPokemons, setFotoEnviada, fotoEnviada, setModalFechado } = useContext(PokemonContext);
+  const { setPokemons, setFotoEnviada } = useContext(PokemonContext);
 
   const [ showModal, viewModal, closeModal ] = useModal();
 
   const [ showModalStats, viewModalStats, closeModalStats ] = useModalStats();
-
-  const [ showModalCapture, viewModalCapture, closeModalCapture ] = useModalCapture();
 
   const [pokes, setPokes] = useState<any>([]);
 
